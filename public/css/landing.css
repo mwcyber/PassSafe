@@ -1,0 +1,38 @@
+html,
+body {
+  height: 100%;
+}
+
+body {
+  justify-content: center;
+  background-color:#EFEFF4;
+}
+
+.card {
+    border-radius: 15px;
+    background-color:white;
+    text-align: center;
+}
+
+.jumbotron-fluid {
+    border-radius: 15px;
+    background-color:white;
+    text-align: center;
+}
+
+.btn {
+    background-color: #43a5a1;
+    color: white;
+}
+
+.btn:hover {
+    background-color: #83e6e2 !important;
+}
+
+h1 {
+    color: #43a5a1;
+}
+
+h5, p {
+    color: black;
+}
