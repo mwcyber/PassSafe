@@ -22,9 +22,9 @@ app.run(function ($rootScope, $location, Auth) {
 
     $rootScope.$on('$routeChangeStart', function () {
 
-        /*         if ($location.url() == '/home' && !Auth.isLoggedIn()) {
-                    $location.path('/login');
-                } */
+        if ($location.url() == '/home' && !Auth.isLoggedIn()) {
+            $location.path('/login');
+        }
 
     });
 

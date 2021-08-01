@@ -8,14 +8,14 @@ app.controller('login-controller', function ($scope, $http, $location, Auth) {
         $http({
             method: 'POST',
             url: '/api/iam/login',
-            data: JSON.stringify(authToken),
+            data: JSON.stringify({ authToken: authToken }),
             headers: { 'Content-Type': 'application/json' }
         }).then(function success(response) {
 
             var user = {
                 email: $scope.user.email,
-                authToken: authToken.authToken,
-                vaultToken: vaultToken.vaultToken
+                authToken: authToken,
+                vaultToken: vaultToken
             };
 
             Auth.setUser(user);
