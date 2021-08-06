@@ -10,7 +10,8 @@ app.config(function ($routeProvider) {
             controller: 'login-controller'
         })
         .when('/signup', {
-            templateUrl: '/pages/signup.html'
+            templateUrl: '/pages/signup.html',
+            controller: 'signup-controller'
         })
         .when('/home', {
             templateUrl: 'pages/home.html',
