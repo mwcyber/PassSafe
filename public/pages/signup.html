@@ -1,11 +1,32 @@
 <div>
-    <form class="form-signin" ng-submit="submitSignUp()">
-        <img class="mb-4" src="/img/bear-logo.svg" alt="bear logo" width="72" height="72">
-        <h1 class="h3 mb-3 font-weight-normal">Please enter your data</h1>
-        <input type="email" class="form-control mb-3" placeholder="Email address" ng-model="user.email">
-        <input type="password" class="form-control mb-3" placeholder="MasterPassword" ng-model="user.password">
-        <input type="password" class="form-control mb-3" placeholder="Repeat MasterPassword">
-        <button class="btn btn-lg btn-primary btn-block" type="submit" id="login_submit">Sign up</button>
+    <form name="signupForm" class="form-signin" ng-submit="submitSignUp()">
+
+        <h1 class="h3 mb-3">Please enter your data</h1>
+
+        <input type="email" name="email" class="form-control mb-3" placeholder="Email address" ng-model="user.email"
+            required>
+
+        <p ng-show="signupForm.email.$error.email">Not valid email</p>
+
+        <input type="password" class="form-control mb-3" name="password" ng-model="user.password" ng-minlength="8"
+            ng-pattern="/(?=.*[a-z])(?=.*[A-Z])(?=.*[^a-zA-Z])/" placeholder="MasterPassword" required />
+
+        <p ng-show="signupForm.password.$error.required">*</p>
+        <p ng-show="signupForm.password.$error.minlength">
+            Passwords must be more than 8 characters.</p>
+        <p ng-show="signupForm.password.$error.pattern">
+            Must contain one lower &amp; uppercase letter, and one non-alpha character (a number or a symbol.)</p>
+
+        <input type="password" class="form-control mb-3" name="passwConfirm" ng-model="user.passwordC"
+            placeholder="Repeat MasterPassword" valid-password-c="user.password" required />
+
+        <p ng-show="signupForm.passwordC.$error.noMatch">Passwords do not match.</span>
+        <p ng-show="signupForm.passwordC.$error.required">*</p>
+
+        <button type="submit" class="btn btn-lg btn-primary btn-block" ng-disabled="signupForm.$invalid">Sign
+            up</button>
+
         <p class="mt-5 mb-3 text-muted">© 2021</p>
     </form>
+
 </div>
