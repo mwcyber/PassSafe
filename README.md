@@ -8,7 +8,7 @@
 A simple password maanger made with MEAN stack for university exam. Simple but secure!
 
 ## Roadmap
-- [ ] Make signup work
+- [X] Make signup work
 - [ ] Input validation in forms
 - [ ] Middleware for API auth code
 - [ ] API code review
