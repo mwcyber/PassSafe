@@ -16,7 +16,8 @@ router.post("/login", async (req, res) => {
 //User signup
 router.post("/signup", async (req, res) => {
     try {
-
+        const usermail = await User.findOne({ email: req.body.email });
+        if (usermail) { return res.status(500).send("Email taken!") }
         User.create({
             email: req.body.email,
             authToken: req.body.authToken,

@@ -23,7 +23,7 @@ app.controller('login-controller', function ($scope, $http, $location, Auth) {
             $location.path('/home');
 
         }, function error(response) {
-            console.log("Error:" + response);
+            alert("Error: " + response.data);
         });
 
     }

@@ -36,7 +36,7 @@ app.controller('home-controller', function ($scope, $http, Auth) {
         }).then(function success(response) {
             $scope.vault = angular.copy(JSON.parse(openVault(response.data.vault, Auth.isLoggedIn().vaultToken)));
         }, function error(response) {
-            console.log("Error:" + response);
+            console.log("Error: " + response.data);
         });
     };
 
@@ -50,7 +50,7 @@ app.controller('home-controller', function ($scope, $http, Auth) {
         }).then(function success(response) {
             console.log(response);
         }, function error(response) {
-            console.log("Error:" + response);
+            console.log("Error: " + response.data);
         });
     };
 

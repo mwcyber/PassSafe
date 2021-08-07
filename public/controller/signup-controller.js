@@ -14,7 +14,7 @@ app.controller('signup-controller', function ($scope, $http, $location) {
         }).then(function success(response) {
             $location.path('/login');
         }, function error(response) {
-            console.log("Error:" + response);
+            alert("Error: " + response.data);
         });
 
     }
