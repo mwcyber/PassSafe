@@ -20,8 +20,8 @@
         <input type="password" class="form-control mb-3" name="passwConfirm" ng-model="user.passwordC"
             placeholder="Repeat MasterPassword" valid-password-c="user.password" required />
 
-        <p ng-show="signupForm.passwordC.$error.noMatch">Passwords do not match.</span>
-        <p ng-show="signupForm.passwordC.$error.required">*</p>
+        <p ng-show="signupForm.passwConfirm.$error.noMatch">Passwords do not match.</p>
+        <p ng-show="signupForm.passwConfirm.$error.required">*</p>
 
         <button type="submit" class="btn btn-lg btn-primary btn-block" ng-disabled="signupForm.$invalid">Sign
             up</button>

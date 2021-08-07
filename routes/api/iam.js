@@ -5,15 +5,11 @@ const router = express.Router();
 //User login
 router.post("/login", async (req, res) => {
     try {
-
         const loginData = await User.findOne({ authToken: req.body.authToken });
-
         if (!loginData) return res.status(403).send("Access denied!");
-
-        res.send('Logged In');
-
+        res.status(200).send('Logged In');
     } catch (err) {
-        res.send("An error occured, " + err);
+        res.status(500).send("An error occured, " + err);
     }
 })
 
@@ -27,10 +23,10 @@ router.post("/signup", async (req, res) => {
             vault: req.body.vault
         });
 
-        res.send('SignUP!');
+        res.status(200).send('Account created!');
 
     } catch (err) {
-        res.send("An error occured, " + err);
+        res.status(500).send("An error occured, " + err);
     }
 })
 
