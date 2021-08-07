@@ -21,11 +21,13 @@ router.post("/login", async (req, res) => {
 router.post("/signup", async (req, res) => {
     try {
 
-        const loginData = await User.findOne({ authToken: req.body.authToken });
+        User.create({
+            email: req.body.email,
+            authToken: req.body.authToken,
+            vault: req.body.vault
+        });
 
-        if (!loginData) return res.status(403).send("Access denied!");
-
-        res.send('Logged In');
+        res.send('SignUP!');
 
     } catch (err) {
         res.send("An error occured, " + err);
