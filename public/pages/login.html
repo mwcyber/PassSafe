@@ -1,9 +1,12 @@
 <div>
-    <form class="form-signin" ng-submit="submitLogin()">
+    <form name="loginForm" class="form-signin" ng-submit="submitLogin()">
         <h1 class="h3 mb-3">Please sign in</h1>
-        <input type="email" class="form-control mb-3" placeholder="Email address" ng-model="user.email">
-        <input type="password" class="form-control" placeholder="MasterPassword" ng-model="user.password">
-        <button class="btn btn-lg btn-primary btn-block" type="submit">Login</button>
+        <input type="email" name="email" class="form-control mb-3" placeholder="Email address" ng-model="user.email"
+            required>
+        <p ng-show="loginForm.email.$error.email">Not valid email</p>
+        <input type="password" name="password" class="form-control" placeholder="MasterPassword"
+            ng-model="user.password" required>
+        <button type="submit" class="btn btn-lg btn-primary btn-block" ng-disabled="loginForm.$invalid">Login</button>
         <p class="mt-5 mb-3 text-muted">© 2021</p>
     </form>
 
