@@ -10,6 +10,5 @@ A simple password maanger made with MEAN stack for university exam. Simple but s
 ## Roadmap
 - [X] Make signup work
 - [ ] Input validation in forms
-- [ ] Middleware for API auth code
-- [ ] API code review
+- [ ] Backend code review
 - [ ] Responsive design
