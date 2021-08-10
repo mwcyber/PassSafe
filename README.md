@@ -9,6 +9,6 @@ A simple password maanger made with MEAN stack for university exam. Simple but s
 
 ## Roadmap
 - [X] Make signup work
-- [ ] Input validation in forms
+- [X] Input validation in forms
 - [ ] Backend code review
 - [ ] Responsive design
