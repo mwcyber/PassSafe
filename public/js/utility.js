@@ -19,5 +19,5 @@ function closeVault(vault, vaultToken) {
 
 function genID() {
     var time = new Date().getTime();
-    return CryptoJS.SHA1(time).toString();
+    return CryptoJS.SHA1(time.toString()).toString();
 }

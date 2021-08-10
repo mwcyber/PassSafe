@@ -8,16 +8,28 @@
         </form>
     </nav>
     <div class="row">
-        <div class="col-3" ng-repeat="account in vault">
-            <div class="card mb-2">
+        <div class="col-md-4 ng-scope" ng-repeat="account in vault">
+            <div class="card mb-4 box-shadow">
+                <h2 class="card-header">{{account.service}} <button type="button" class="btn btn-danger"
+                        style="float: right;" ng-click="removeAccount(account.id)">Delete</button>
+                </h2>
                 <div class="card-body">
-                    <h3 class="card-title">{{account.service}}</h3>
-                    <p class="card-text">Username: {{account.username}}</p>
-                    <p class="card-text">Email: {{account.email}}</p>
-                    <p class="card-text">Password: {{account.password}}</p>
-                    <p class="card-text">Url: {{account.url}}</p>
-                    <button type="button" class="btn btn-primary btn-block"
-                        ng-click="removeAccount(account.id)">Delete</button>
+                    <ul class="list-group list-group-flush">
+                        <li class="list-group-item"><i class="bi bi-person-circle"></i> {{account.username}}</li>
+                        <li class="list-group-item"><i class="bi bi-envelope-fill"></i> {{account.email}}</li>
+                        <button class="btn btn-warning btn-sm" type="button" data-toggle="collapse"
+                            data-target="#collapsePassw-{{account.id}}" aria-expanded="false"
+                            aria-controls="collapsePassw">
+                            Show Password
+                        </button>
+                        <div class="collapse" id="collapsePassw-{{account.id}}">
+                            <li class="list-group-item">{{account.password}}</li>
+                        </div>
+                    </ul>
+                </div>
+                <div class="card-footer">
+                    <a class="btn btn-primary btn-sm btn-block" href="{{account.url}}" target="_blank"
+                        rel="noopener noreferrer">Go to website</a>
                 </div>
             </div>
         </div>
@@ -34,17 +46,22 @@
                 </button>
             </div>
             <div class="modal-body">
-                <form class="form-signin">
-                    <input type="text" class="form-control mb-2" placeholder="Service name" ng-model="form.service">
-                    <input type="text" class="form-control mb-2" placeholder="Username" ng-model="form.username">
-                    <input type="text" class="form-control mb-2" placeholder="Email address" ng-model="form.email">
-                    <input type="password" class="form-control mb-2" placeholder="Password" ng-model="form.password">
-                    <input type="text" class="form-control" placeholder="Website URL" ng-model="form.url">
+                <form name="accForm" class="form-signin">
+                    <input type="text" class="form-control mb-2" placeholder="Service name" ng-model="form.service"
+                        required>
+                    <input type="text" class="form-control mb-2" placeholder="Username" ng-model="form.username"
+                        required>
+                    <input type="email" class="form-control mb-2" placeholder="Email address (optional)"
+                        ng-model="form.email">
+                    <input type="password" class="form-control mb-2" placeholder="Password" ng-model="form.password"
+                        required>
+                    <input type="text" class="form-control" placeholder="Website URL (optional)" ng-model="form.url">
                 </form>
             </div>
             <div class="modal-footer">
                 <button type="button" class="btn btn-primary" data-dismiss="modal">Close</button>
-                <button type="button" class="btn btn-primary" ng-click="createAccount()">Save account</button>
+                <button type="button" class="btn btn-primary" ng-click="createAccount()"
+                    ng-disabled="accForm.$invalid">Save account</button>
             </div>
         </div>
     </div>
