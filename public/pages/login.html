@@ -1,4 +1,4 @@
-<div>
+<div class="container">
     <form name="loginForm" class="form-signin" ng-submit="submitLogin()">
         <h1 class="h3 mb-3">Please sign in</h1>
         <input type="email" name="email" class="form-control mb-3" placeholder="Email address" ng-model="user.email"
@@ -6,8 +6,8 @@
         <p ng-show="loginForm.email.$error.email">Not valid email</p>
         <input type="password" name="password" class="form-control" placeholder="MasterPassword"
             ng-model="user.password" required>
-        <button type="submit" class="btn btn-lg btn-primary btn-block" ng-disabled="loginForm.$invalid">Login</button>
+        <button type="submit" class="btn btn-lg btn-primary btn-block mt-3"
+            ng-disabled="loginForm.$invalid">Login</button>
         <p class="mt-5 mb-3 text-muted">© 2021</p>
     </form>
-
 </div>
