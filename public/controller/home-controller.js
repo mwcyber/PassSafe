@@ -29,9 +29,9 @@ app.controller('home-controller', function ($scope, $http, Auth) {
     // Recupero dal server il vault
     $scope.getVault = function () {
         $http({
-            method: 'GET',
+            method: 'POST',
             url: '/api/vault/getVault',
-            params: { authToken: Auth.isLoggedIn().authToken },
+            data: { authToken: Auth.isLoggedIn().authToken },
             headers: { 'Content-Type': 'application/json' }
         }).then(function success(response) {
             $scope.vault = angular.copy(JSON.parse(openVault(response.data.vault, Auth.isLoggedIn().vaultToken)));

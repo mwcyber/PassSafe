@@ -2,9 +2,9 @@ const User = require("../../models/user");
 const express = require("express");
 const router = express.Router();
 
-router.get("/getVault", async (req, res) => {
+router.post("/getVault", async (req, res) => {
     try {
-        const user = await User.findOne({ authToken: req.query.authToken });
+        const user = await User.findOne({ authToken: req.body.authToken });
         if (!user) return res.status(403).send("Access denied!");
         res.status(200).send({ vault: user.vault });
     } catch (err) {
