@@ -5,7 +5,7 @@ const router = express.Router();
 //User login
 router.post("/login", async (req, res) => {
     try {
-        const loginData = await User.findOne({ authToken: req.body.authToken });
+        const loginData = await User.findOne({ authToken: req.body.authToken, email: req.body.email });
         if (!loginData) return res.status(403).send("Access denied!");
         res.status(200).send('Logged In');
     } catch (err) {
